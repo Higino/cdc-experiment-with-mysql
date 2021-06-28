@@ -17,7 +17,7 @@ $ ./register-testdbtasks-connector.sh
 $ cd ../Client
 $ npm i && node index.js
 ```
-and star watching all the changes in db happening in near realtime in the akfka ui topic testserver.testdb.tasks
+and star watching all the changes in db happening in near realtime in the akfka ui topic testserver.testdb.tasks (by going to http://localhost:9000)
 
 # Project architecture
 ![CDC Experiment Architecture](https://user-images.githubusercontent.com/19814911/123679784-d26f9780-d83f-11eb-98fa-a9d1ffff0533.png)
