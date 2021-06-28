@@ -2,8 +2,9 @@
 An experiment to test how we can capture data changes from a mysql database to a kafka infrastructure
 
 Testing data streaming extraction from a mysql database directly from the transaction logs using kafka connectors for mysql. All insert, update, delete statements will trigger messages to be send to kafka with the following rough schema:
-``` { before: {a json object with the state of all the columns before the operation was commited}
-      after: {an json object with the state of all the columns after the opearation was commited }
+``` 
+{ before: {a json object with the state of all the columns before the operation was commited}
+  after: {an json object with the state of all the columns after the opearation was commited }
 ```
 
 # How to use this
