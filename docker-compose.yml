@@ -1,0 +1,56 @@
+version: "3.9"
+services:
+    zookeeper:
+        container_name: zookeeper
+        image: debezium/zookeeper
+        ports:
+            - "2181:2181"
+            - "2888:2888"
+            - "3888:3888"
+
+    kafka:
+        container_name: kafka
+        image: debezium/kafka
+        ports: 
+            - 9092:9092
+        environment:
+            - ZOOKEEPER_CONNECT=zookeeper:2181
+        depends_on: 
+            - zookeeper
+
+    kafkaui:
+        container_name: kafkaui
+        image: obsidiandynamics/kafdrop
+        ports: 
+            - 9000:9000
+        environment: 
+            - SERVER_SERVLET_CONTEXTPATH=/
+            - KAFKA_BROKERCONNECT=kafka:9092
+        depends_on: 
+            - kafka
+
+    mysqlserver:
+        container_name: mysqlserver
+        image: cdcexperiment-mysqlserver
+        build: ./testdb-server
+        ports: 
+            - 3306:3306
+        environment: 
+            - MYSQL_ROOT_PASSWORD=admin123
+            - MYSQL_DATABASE=testdb
+
+    mysqlkafkaconnector: 
+        container_name: mysqlkafkaconnector
+        image: debezium/connect
+        ports: 
+            - 8083:8083
+        environment: 
+            - CONFIG_STORAGE_TOPIC=my_connect_config_storage_topic
+            - OFFSET_STORAGE_TOPIC=my_connect_offsets_topic
+            - STATUS_STORAGE_TOPIC=my_connect_status_topic
+            - GROUP_ID=1
+            - BOOTSTRAP_SERVERS=kafka:9092
+        depends_on: 
+            - zookeeper
+            - kafka
+            - mysqlserver
