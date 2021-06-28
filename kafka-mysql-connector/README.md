@@ -17,9 +17,8 @@ The configuration of the connector also assumes a database accessible at mysqlse
     "database.user": "root",
     "database.password": "admin123",
     "database.server.id": "3",  
-    "database.server.name": "testdb",  
-    "database.include.list": "testdb",
-    "table.include.list": "tasks",
+    "database.server.name": "testserver",  
+    "table.include.list": "testdb.tasks",
     "database.history.kafka.bootstrap.servers": "kafka:9092",  
     "database.history.kafka.topic": "schema-changes.tasks"  
   }
