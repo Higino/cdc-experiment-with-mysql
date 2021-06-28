@@ -14,7 +14,7 @@ $ cd (this repo)
 $ docker compose up
 $ cd kafka-mysql-connector
 $ ./register-testdbtasks-connector.sh
-$ cd ../Client
+$ cd ../tasks-test-client
 $ npm i && node index.js
 ```
 and star watching all the changes in db happening in near realtime in the akfka ui topic testserver.testdb.tasks (by going to http://localhost:9000)
