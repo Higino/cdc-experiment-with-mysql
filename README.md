@@ -7,7 +7,7 @@ Testing data streaming extraction from a mysql database
 ![CDC Experiment Architecture](https://user-images.githubusercontent.com/19814911/123679784-d26f9780-d83f-11eb-98fa-a9d1ffff0533.png)
 
 
-## Client
+## Tasks data generator (aka Client)
 A component that will create the mysqldatamodel and randomly popuates users and tasks tables in mysqldatabase
 
 
