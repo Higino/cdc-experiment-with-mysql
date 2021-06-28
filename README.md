@@ -3,6 +3,18 @@ An experiment to test how we can capture data changes from a mysql database to a
 
 Testing data streaming extraction from a mysql database
 
+# How to use this
+```
+$ git clone (this repo)
+$ cd (this repo)
+$ docker compose up
+$ cd kafka-mysql-connector
+$ ./register-testdbtasks-connector.sh
+$ cd ../Client
+$ npm i && node index.js
+```
+and star watching all the changes in db happening in near realtime in the akfka ui topic testserver.testdb.tasks
+
 # Project architecture
 ![CDC Experiment Architecture](https://user-images.githubusercontent.com/19814911/123679784-d26f9780-d83f-11eb-98fa-a9d1ffff0533.png)
 
