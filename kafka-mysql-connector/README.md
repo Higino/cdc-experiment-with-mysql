@@ -22,4 +22,4 @@ The configuration of the connector also assumes a database accessible at mysqlse
     "database.history.kafka.bootstrap.servers": "kafka:9092",  
     "database.history.kafka.topic": "schema-changes.tasks"  
   }
-} ```
+}
