@@ -37,4 +37,5 @@ A kafka server that will be used to store streamed data from mysqlserver
 A simple userinterface so we can see what is being sent to kafka
 
 ## Future work
-Create a kafka consumer to get the data being streamned out of mysql and plot it into a dashboard
+- Create a kafka consumer to get the data being streamned out of mysql and plot it into a dashboard
+- Implement filtering in the streaming (i.e, only stream tasks whose user signed a GDPR agreement (users who's user id is odd for example). Reference here: https://debezium.io/documentation/reference/configuration/filtering.html
